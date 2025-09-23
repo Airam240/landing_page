@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entre em Contato</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Lato', sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                  url("img/WhatsApp Image 2025-09-12 at 13.17.48.jpeg") center/cover no-repeat;
+      color: #fff;
+    }
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 3rem;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      line-height: 1.8;
+    }
+    .btn {
+      background: #25d366;
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+    }
+    .btn:hover {
+      background: #1ebe5d;
+    }
+
+    /* Formulário */
+    .formulario {
+      padding: 3rem 2rem;
+      display: flex;
+      justify-content: center;
+      background: #fff;
+    }
+    form {
+      background: #f9f9f9;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    form h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+    form input {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-family: 'Lato', sans-serif;
+    }
+    form button {
+      width: 100%;
+    }
+
+    /* WhatsApp Flutuante */
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      padding: 15px;
+      border-radius: 50%;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      transition: 0.3s;
+    }
+    .whatsapp:hover {
+      transform: scale(1.1);
+    }
+    .whatsapp img {
+      width: 35px;
+      height: 35px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Chega de sonhar, é hora de realizar!</h1>
+    <p>Chega de pagar aluguel e ver seu dinheiro ir embora todo mês. 
+    Com um planejamento inteligente, você pode conquistar sua casa própria sem pagar juros e sem complicações.
+    Fale com a gente agora e garanta uma consultoria exclusiva para dar o primeiro passo rumo ao seu lar!</p>
+  </section>
+
+  <!-- Formulário -->
+  <section class="formulario" id="formulario">
+    <form onsubmit="enviarWhatsApp(event)">
+      <h3>Deixe seus dados</h3>
+      <input type="text" id="nome" placeholder="Seu nome" required>
+      <button type="submit" class="btn">Quero entrar em Contato</button>
+    </form>
+  </section>
+
+  <!-- WhatsApp Flutuante -->
+  <a href="https://wa.me/+558000004690" class="whatsapp" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+
+  <script>
+    function enviarWhatsApp(event) {
+      event.preventDefault(); // impede envio padrão do form
+
+      const nome = document.getElementById("nome").value;
+      const mensagem = `Olá sou ${nome}, quero saber mais.%0A`;
+
+      const url = `https://wa.me/+558000004690?text=${mensagem}`;
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
